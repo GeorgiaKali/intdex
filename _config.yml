@@ -1,0 +1,61 @@
+# Project site: https://georgiakali.github.io/intdex/
+# GitHub Pages source is the main branch, folder / (root).
+# `url` is the host. `baseurl` is the repository path. No trailing slash on either.
+title: IntDEx Articles
+tagline: Notes on the AI-native Delivery Experience framework
+description: >-
+  Articles by Georgia Kali about IntDEx, the AI-native Delivery Experience
+  framework. IntDEx is a research project on AI-native software delivery,
+  seeking IT professionals and organisations to help develop it.
+url: "https://georgiakali.github.io"
+baseurl: "/intdex"
+lang: en
+timezone: Etc/UTC
+
+author:
+  name: Georgia Kali
+  url: https://georgiakali.github.io
+  uri: https://georgiakali.github.io
+
+intdex:
+  name: IntDEx
+  url: https://intdex.org
+
+repository: GeorgiaKali/intdex
+
+# The github-pages gem otherwise selects the Primer theme.
+theme: null
+future: false
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+permalink: /:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: Georgia Kali
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - .gitignore

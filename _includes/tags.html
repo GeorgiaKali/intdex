@@ -1,0 +1,8 @@
+{% if include.tags and include.tags != empty %}
+<ul class="tags">
+  {% for tag in include.tags %}
+    {% capture tag_path %}/tags/{{ tag | slugify }}/{% endcapture %}
+    <li><a class="tag" href="{{ tag_path | relative_url }}">{{ tag }}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}

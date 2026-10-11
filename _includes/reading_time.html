@@ -1,0 +1,7 @@
+{% assign source = include.text | default: content %}
+{% assign words = source | strip_html | number_of_words %}
+{% assign minutes = words | plus: 179 | divided_by: 180 %}
+{% if minutes < 1 %}
+  {% assign minutes = 1 %}
+{% endif %}
+{% if minutes == 1 %}1 min read{% else %}{{ minutes }} min read{% endif %}

@@ -1,0 +1,44 @@
+---
+layout: default
+---
+<article class="article">
+  {% if page.sample %}
+    <p class="sample-banner" role="note">Sample post. Delete this file before you publish. It is not an IntDEx project statement.</p>
+  {% endif %}
+  <div class="article-grid">
+    <p class="kicker">Article</p>
+    <h1>{{ page.title }}</h1>
+    <dl class="meta">
+      <div>
+        <dt>Author</dt>
+        <dd>
+          {% if page.author.name %}
+            {% assign author_name = page.author.name %}
+          {% elsif page.author %}
+            {% assign author_name = page.author %}
+          {% else %}
+            {% assign author_name = site.author.name %}
+          {% endif %}
+          <a href="{{ site.author.url }}" rel="author">{{ author_name }}</a>
+        </dd>
+      </div>
+      <div>
+        <dt>Date</dt>
+        <dd><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %b %Y" }}</time></dd>
+      </div>
+      <div>
+        <dt>Reading time</dt>
+        <dd>{% include reading_time.html %}</dd>
+      </div>
+      {% if page.tags and page.tags != empty %}
+        <div>
+          <dt>Tags</dt>
+          <dd>{% include tags.html tags=page.tags %}</dd>
+        </div>
+      {% endif %}
+    </dl>
+    <div class="prose">
+      {{ content }}
+    </div>
+  </div>
+</article>

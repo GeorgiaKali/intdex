@@ -1,0 +1,35 @@
+---
+layout: default
+---
+{% assign tagged = site.tags[page.tag] %}
+<article class="page">
+  <p class="kicker">Tag</p>
+  <h1>{{ page.tag }}</h1>
+  <p class="count">
+    {% if tagged.size == 1 %}
+      1 article
+    {% elsif tagged.size > 1 %}
+      {{ tagged.size }} articles
+    {% else %}
+      No articles with this tag yet.
+    {% endif %}
+  </p>
+  {% if tagged.size > 0 %}
+    <ul class="index">
+      {% for post in tagged %}
+        <li class="entry">
+          <div class="entry-main">
+            <p class="entry-meta">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time>
+              {% if post.sample %}<span class="flag">Sample — delete</span>{% endif %}
+            </p>
+            <a class="entry-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            {% if post.description %}
+              <p class="entry-summary">{{ post.description }}</p>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</article>

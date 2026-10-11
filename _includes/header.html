@@ -1,0 +1,19 @@
+<a class="skip" href="#content">Skip to content</a>
+<header class="mast">
+  <div class="wrap mast-inner">
+    <a class="wordmark" href="{{ '/' | relative_url }}">
+      Int<span class="dex">DEx</span>
+      <span class="wordmark-sub">Articles</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Articles</a>
+      <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+      <a href="{{ '/tags/' | relative_url }}"{% if page.url == '/tags/' or page.tag %} aria-current="page"{% endif %}>Tags</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </nav>
+    <nav class="nav nav-out" aria-label="Related sites">
+      <a href="{{ site.intdex.url }}">intdex.org</a>
+      <a href="{{ site.author.url }}" rel="me">Georgia Kali</a>
+    </nav>
+  </div>
+</header>

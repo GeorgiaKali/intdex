@@ -1,0 +1,28 @@
+---
+layout: default
+title: Tags
+permalink: /tags/
+description: Tags used on IntDEx Articles.
+---
+<article class="page">
+  <p class="kicker">Index</p>
+  <h1>Tags</h1>
+  {% if site.tags.size == 0 %}
+    <p class="empty">No tags yet.</p>
+  {% else %}
+    <ul class="tag-index">
+      {% assign tag_list = site.tags | sort %}
+      {% for item in tag_list %}
+        {% assign name = item[0] %}
+        {% assign posts = item[1] %}
+        {% capture tag_path %}/tags/{{ name | slugify }}/{% endcapture %}
+        <li>
+          <a href="{{ tag_path | relative_url }}">{{ name }}</a>
+          <span class="tag-count">
+            {% if posts.size == 1 %}1 article{% else %}{{ posts.size }} articles{% endif %}
+          </span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</article>

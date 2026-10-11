@@ -1,0 +1,6 @@
+# Extra metadata for the author name used in post front matter.
+# jekyll-seo-tag reads `url`. jekyll-feed reads `uri`.
+"Georgia Kali":
+  name: Georgia Kali
+  url: https://georgiakali.github.io
+  uri: https://georgiakali.github.io

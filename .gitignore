@@ -1,0 +1,9 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+vendor/
+# Pages resolves github-pages itself. A lockfile drifts off that set and
+# makes the native build warn that dependencies cannot be satisfied.
+Gemfile.lock

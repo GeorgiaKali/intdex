@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<header class="intro">
+  <h1>Articles</h1>
+  <p class="standfirst">
+    Articles by <a href="{{ site.author.url }}" rel="me">Georgia Kali</a> about
+    <a href="{{ site.intdex.url }}">IntDEx</a>, the AI-native Delivery Experience framework.
+    IntDEx is a research project on AI-native software delivery.
+    It is seeking IT professionals and organisations to help develop it.
+  </p>
+</header>
+
+{% if site.posts.size == 0 %}
+  <p class="empty">No articles yet.</p>
+{% else %}
+  <ul class="index">
+    {% for post in site.posts %}
+      <li class="entry">
+        <div class="entry-main">
+          <p class="entry-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time>
+            {% if post.sample %}<span class="flag">Sample — delete</span>{% endif %}
+          </p>
+          <a class="entry-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          {% if post.description %}
+            <p class="entry-summary">{{ post.description }}</p>
+          {% else %}
+            <p class="entry-summary">{{ post.excerpt | strip_html | truncate: 220 }}</p>
+          {% endif %}
+          {% include tags.html tags=post.tags %}
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
